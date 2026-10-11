@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="sw">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0b14">
+  <meta name="description" content="Jovin AI - msaidizi wa AI kwa Kiswahili na English">
+  <title>Jovin AI</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand">
+        <img class="logo" src="/favicon.svg" alt="" width="36" height="36">
+        <div>
+          <h1>Jovin <span class="grad">AI</span></h1>
+          <p class="status" role="status"><span class="dot" id="dot"></span><span id="statusText">Inaanza…</span></p>
+        </div>
+      </div>
+      <div class="top-actions">
+        <button type="button" id="autoSpeak" class="icon-btn" aria-pressed="false" aria-label="Soma majibu kwa sauti kiotomatiki" title="Soma majibu kwa sauti">🔈</button>
+        <button type="button" id="clearBtn" class="icon-btn" aria-label="Futa mazungumzo ya huduma hii" title="Futa mazungumzo">🗑️</button>
+      </div>
+    </header>
+
+    <nav class="tabs" role="tablist" aria-label="Huduma za Jovin AI">
+      <button type="button" role="tab" class="tab active" data-mode="chat" aria-selected="true">💬 Chat</button>
+      <button type="button" role="tab" class="tab" data-mode="business" aria-selected="false">💼 Biashara</button>
+      <button type="button" role="tab" class="tab" data-mode="image" aria-selected="false">🖼️ Picha</button>
+      <button type="button" role="tab" class="tab" data-mode="video" aria-selected="false">🎬 Video</button>
+    </nav>
+
+    <div id="modeNote" class="mode-note" hidden></div>
+
+    <main id="messages" class="messages" aria-live="polite" aria-label="Mazungumzo"></main>
+
+    <section id="imagePanel" class="image-panel" hidden aria-label="Tengeneza picha">
+      <label for="imgPrompt">Prompt ya picha (Kiingereza kinafanya kazi vizuri zaidi)</label>
+      <textarea id="imgPrompt" rows="2" maxlength="1000" placeholder="Mfano: A modern Dar es Salaam street market at sunset, cinematic lighting, 16:9"></textarea>
+      <div class="image-actions">
+        <button type="button" id="imgBtn" class="btn">🎨 Tengeneza picha</button>
+        <button type="button" id="imgCopy" class="btn ghost">📋 Nakili prompt</button>
+      </div>
+      <div id="imgResult" class="img-result" aria-live="polite"></div>
+    </section>
+
+    <form id="composer" class="composer" autocomplete="off">
+      <div class="composer-row">
+        <select id="lang" aria-label="Lugha ya sauti">
+          <option value="sw-TZ">Kiswahili</option>
+          <option value="en-US">English</option>
+        </select>
+        <button type="button" id="micBtn" class="icon-btn" aria-label="Ongea (kipaza sauti)" aria-pressed="false" title="Ongea">🎤</button>
+        <textarea id="input" rows="1" maxlength="4000" placeholder="Andika swali lako…" aria-label="Ujumbe wako"></textarea>
+        <button type="submit" id="sendBtn" class="send" aria-label="Tuma ujumbe">➤</button>
+      </div>
+      <p class="hint">Jovin AI inaweza kukosea. Hakikisha taarifa muhimu kabla ya kuzitumia.</p>
+    </form>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <script src="/app.js"></script>
+</body>
+</html>

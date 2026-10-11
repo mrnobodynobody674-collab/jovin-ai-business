@@ -1,0 +1,14 @@
+{
+  "name": "jovin-ai",
+  "version": "1.0.0",
+  "description": "Jovin AI - msaidizi wa AI (Swahili/English) kwa Android/Termux. Hakuna dependencies za nje.",
+  "main": "index.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "node test/smoke.js"
+  }
+}
